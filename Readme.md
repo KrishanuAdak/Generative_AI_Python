@@ -30,3 +30,32 @@ Http Server just like Apache Tomcat Server
 - Uvicorn sends the HTTP response back to the client.
 commands 
 - pip install "uvicorn[standard]"
+python -m uvicorn FastApiTest:app --reload
+- 
+ASGI = Asynchronous Server Gateway Interface
+-----------------------------------------
+
+It is a standard interface between a Python web application (FastAPI) and a web server (Uvicorn).
+
+Think of it as a communication protocol that allows the web server to communicate with your Python application.
+
+Pydantic Model
+--------------
+
+FastAPI uses Pydantic models to receive and validate request bodies.
+
+Pydantic is a Python library used for data validation, parsing, and serialization.
+
+| Responsibility | Spring Boot | FastAPI |
+|---|---|---|
+| DTO | Java class | Pydantic model |
+| JSON deserialization | Jackson | Pydantic integration |
+| Data validation | Jakarta Validation | Pydantic |
+| Type definitions | Java types | Python type hints |
+| Serialization | Jackson | Pydantic integration |
+
+Pip
+---
+
+It is Python's package manager. You use it to install, upgrade and uninstall external Python libraries (packages).
+
