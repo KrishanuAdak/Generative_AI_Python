@@ -15,14 +15,14 @@ def test(id:int,s_id:int):
 def testQuery(name:str):
     return str("Welcome "+name)
 
-@app.post(
-    '/employee',
-    response_model=object )
-def saveEmployee(employee:Employee):
-    return{
-        "Message":"Employee details",
-        "Employee ": employee
-    }
+# @app.post(
+#     '/employee',
+#     response_model=object )
+# def saveEmployee(employee:Employee):
+#     return{
+#         "Name":employee.name,
+#         "Employee Salary ": employee.salary
+#     }
 
 
 

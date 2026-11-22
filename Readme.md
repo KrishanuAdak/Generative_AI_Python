@@ -59,3 +59,11 @@ Pip
 
 It is Python's package manager. You use it to install, upgrade and uninstall external Python libraries (packages).
 
+SQLAlchemy ORM
+-------------
+
+- FastAPI – REST API framework.
+- SQLAlchemy – ORM (similar to Hibernate/JPA).
+- PostgreSQL – Relational database.
+- Psycopg – PostgreSQL database driver.
+- Pydantic – Request and response validation.
