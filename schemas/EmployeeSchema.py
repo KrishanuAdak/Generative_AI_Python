@@ -8,7 +8,7 @@ class EmployeeUpdate(BaseModel):
     name:str
     email:str
     salary:int | float
-class Employee(BaseModel):
+class EmployeeResponse(BaseModel):
     name: str
     email: str
     salary: int | float
