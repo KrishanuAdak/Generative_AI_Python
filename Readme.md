@@ -31,7 +31,7 @@ Http Server just like Apache Tomcat Server
 commands 
 - pip install "uvicorn[standard]"
 python -m uvicorn FastApiTest:app --reload
-- 
+
 ASGI = Asynchronous Server Gateway Interface
 -----------------------------------------
 
@@ -67,3 +67,28 @@ SQLAlchemy ORM
 - PostgreSQL – Relational database.
 - Psycopg – PostgreSQL database driver.
 - Pydantic – Request and response validation.
+
+Pydantic Schema
+---------------
+
+This is required for validation ,request body, response body.
+| SQLAlchemy | Spring Boot equivalent |
+|---|---|
+| `create_engine()` | DataSource configuration |
+| `sessionmaker()` | EntityManager / session factory |
+| `SessionLocal()` | Getting a database session |
+| `DeclarativeBase` | Base class for JPA entities |
+| `get_db()` | Providing a database session to a component |
+
+- Depends(get_db) tells FastAPI to execute get_db().
+- get_db() creates a database session.
+- FastAPI injects that session into the db parameter.
+- After the request finishes, the finally block in get_db() closes the session.
+
+| Code | What it does | Spring/JPA equivalent |
+|---|---|---|
+| `db.add()` | Adds entity to the session | `entityManager.persist()` |
+| `db.commit()` | Commits transaction and executes INSERT | Transaction commit |
+| `db.refresh()` | Fetches updated DB values, such as generated ID | Refreshing entity from DB |
+
+

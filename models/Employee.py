@@ -9,7 +9,6 @@ class Employee(Base):
     # age:int=Field(gt=10)
     # salary:float | int
     # email:EmailStr
-
     id=Column(Integer,primary_key=True,autoincrement=True,index=True)
     name=Column(String)
     email=Column(String)

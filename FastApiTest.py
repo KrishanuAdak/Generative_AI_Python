@@ -1,4 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,Depends
+from sqlalchemy.orm import Session
+from databases import get_db
 from models.Employee import Employee
 app= FastAPI()
 
@@ -15,16 +17,18 @@ def test(id:int,s_id:int):
 def testQuery(name:str):
     return str("Welcome "+name)
 
-# @app.post(
-#     '/employee',
-#     response_model=object )
-# def saveEmployee(employee:Employee):
-#     return{
-#         "Name":employee.name,
-#         "Employee Salary ": employee.salary
-#     }
+
+@app.get('/db/test')
+def testDb(db:Session=Depends(get_db)):
+           return "DB connected successfully"
 
 
+def saveEmployee(employee:Employee,
+                 db:Session=Depends(get_db)):
+    employeeToSave=Employee(name=employee.name,email=employee.email,salary=employee.salary)
+    db.add(employeeToSave)
+    db.commit()
+    db.refresh(employeeToSave)
 
 
 
